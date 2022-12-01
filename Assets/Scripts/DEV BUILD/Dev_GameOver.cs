@@ -11,20 +11,52 @@ public class Dev_GameOver : MonoBehaviour
     [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] Image trophyImage;
     [SerializeField] Sprite trophyBronze, trophySilver, trophyGold;
+    [SerializeField] public Dev_TimeData tutorialLevelSO;
+    [SerializeField] public Dev_TimeData level2SO;
+    [SerializeField] public Dev_TimeData level3SO;
+    [SerializeField] public Dev_TimeData level4SO;
     Dev_SceneSession sceneSession;
     private int displayTime;
+    private Sprite displaySprite;
 
     void Awake()
     {
         sceneSession = FindObjectOfType<Dev_SceneSession>();
-        displayTime = sceneSession.completedTime;
     }
 
     void Start()
     {
+        if (sceneSession.isSuccess) {
+            CheckLevel();
+        }
         SetHeaderText();
         SetSubText();
         SetTrophyTime();
+    }
+
+    void CheckLevel()
+    {
+        if (tutorialLevelSO.id == sceneSession.m_SceneName)
+        {
+            displayTime = tutorialLevelSO.Value;
+            displaySprite = tutorialLevelSO.trophy;
+
+        }
+        else if (level2SO.id.Contains(sceneSession.m_SceneName))
+        {
+            displayTime = level2SO.Value;
+            displaySprite = level2SO.trophy;
+        }
+        else if (level3SO.id.Contains(sceneSession.m_SceneName))
+        {
+            displayTime = level3SO.Value;
+            displaySprite = level3SO.trophy;
+        }
+        else if (level4SO.id.Contains(sceneSession.m_SceneName))
+        {
+            displayTime = level4SO.Value;
+            displaySprite = level4SO.trophy;
+        }
     }
 
     private void SetHeaderText()
@@ -51,8 +83,9 @@ public class Dev_GameOver : MonoBehaviour
             trophyImage.enabled = true;
             timeText.enabled = true;
 
-            SetTrophy();
+            //SetTrophy();
             timeText.text = string.Format("{0}:{1:D2}",displayTime/60, displayTime%60);
+            trophyImage.sprite = displaySprite;
         } else {
             trophyImage.enabled = false;
             timeText.enabled = false;

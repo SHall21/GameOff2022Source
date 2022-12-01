@@ -77,6 +77,7 @@ public class Dev_UIChecklist : MonoBehaviour
 
     private void OnDestroy() {
         StopAllCoroutines();
+        checkListPanel.DOKill();
         DOTween.Kill(this.gameObject);
     }
 }

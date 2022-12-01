@@ -5,8 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Level Time Data")]
 public class Dev_TimeData : ScriptableObject
 {
-    [SerializeField]
-    private int _value;
+    [SerializeField] public string id;
+    [SerializeField] public Sprite trophy;
+    [SerializeField] public bool isLevelComplete;
+    [SerializeField] private int _value;
 
     public int Value
     {

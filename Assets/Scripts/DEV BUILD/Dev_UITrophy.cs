@@ -14,15 +14,26 @@ public class Dev_UITrophy : MonoBehaviour
     private int display2Time;
     [SerializeField] Sprite trophyBronze, trophySilver, trophyGold;
     Dev_SceneSession sceneSession;
+    [SerializeField] public Dev_TimeData tutorialLevelSO;
+    [SerializeField] public Dev_TimeData level2SO;
+    [SerializeField] public Dev_TimeData level3SO;
+    [SerializeField] public Dev_TimeData level4SO;
 
 
     void Awake()
     {
         sceneSession = FindObjectOfType<Dev_SceneSession>();
-        ClearTrophy();
     }
 
-    public void ClearTrophy()
+    private void Start() {
+        ClearTrophy();
+        CheckLevel1();
+        CheckLevel2();
+        CheckLevel3();
+        CheckLevel4();
+    }
+
+    private void ClearTrophy()
     {
         trophy1Image.enabled = false;
         trophy1Text.enabled = false;
@@ -32,47 +43,55 @@ public class Dev_UITrophy : MonoBehaviour
 
     private void CheckLevel1()
     {
-        if (sceneSession.level1Complete)
+        Debug.Log("Checking...");
+        if (tutorialLevelSO.isLevelComplete)
         {
-            display1Time = sceneSession.tutorialLevelSO.Value;
+            Debug.Log("Complete!!");
+            display1Time = tutorialLevelSO.Value;
 
             trophy1Image.enabled = true;
             trophy1Text.enabled = true;
             trophy1Text.text = string.Format("{0}:{1:D2}",display1Time/60, display1Time%60);
-            SetTrophy(trophy1Image, display1Time);
+            trophy1Image.sprite = tutorialLevelSO.trophy;
         }
     }
 
     private void CheckLevel2()
     {
-        if (sceneSession.level2Complete)
+        if (level2SO.isLevelComplete)
         {
-            display1Time = sceneSession.level2SO.Value;
+            display2Time = level2SO.Value;
 
             trophy2Image.enabled = true;
             trophy2Text.enabled = true;
             trophy2Text.text = string.Format("{0}:{1:D2}",display2Time/60, display2Time%60);
-            SetTrophy(trophy2Image, display2Time);
+            trophy2Image.sprite = level2SO.trophy;
         }
     }
 
-    private void SetTrophy(Image trophyImage, int displayTime)
+    private void CheckLevel3()
     {
-        int percentageLeft = (int)((double)(sceneSession.startTime - displayTime) / displayTime * 100);
-
-        if (percentageLeft  >= 71 && percentageLeft  <= 100)
+        if (level3SO.isLevelComplete)
         {
-            trophyImage.sprite = trophyBronze;
+            display2Time = level3SO.Value;
+
+            trophy2Image.enabled = true;
+            trophy2Text.enabled = true;
+            trophy2Text.text = string.Format("{0}:{1:D2}", display2Time / 60, display2Time % 60);
+            trophy2Image.sprite = level3SO.trophy;
         }
+    }
 
-        if (percentageLeft  >= 31 && percentageLeft  <= 70)
+    private void CheckLevel4()
+    {
+        if (level4SO.isLevelComplete)
         {
-            trophyImage.sprite = trophySilver;
-        }
+            display2Time = level4SO.Value;
 
-        if (percentageLeft  >= 1 && percentageLeft  <= 30)
-        {
-            trophyImage.sprite = trophyGold;
+            trophy2Image.enabled = true;
+            trophy2Text.enabled = true;
+            trophy2Text.text = string.Format("{0}:{1:D2}", display2Time / 60, display2Time % 60);
+            trophy2Image.sprite = level4SO.trophy;
         }
     }
 }

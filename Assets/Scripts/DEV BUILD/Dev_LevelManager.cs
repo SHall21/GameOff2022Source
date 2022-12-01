@@ -27,6 +27,16 @@ public class Dev_LevelManager : MonoBehaviour
         SceneManager.LoadScene("Level_2");
     }
 
+    public void LoadLevel3()
+    {
+        SceneManager.LoadScene("Level_3");
+    }
+
+    public void LoadLevel4()
+    {
+        SceneManager.LoadScene("Level_4");
+    }
+
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");

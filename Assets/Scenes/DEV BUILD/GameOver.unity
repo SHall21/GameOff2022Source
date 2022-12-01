@@ -283,7 +283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.43252265}
-  m_AnchoredPosition: {x: 0, y: -0.776886}
+  m_AnchoredPosition: {x: 0, y: -0.77685547}
   m_SizeDelta: {x: 0, y: -1.5537004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &173029724
@@ -1554,6 +1554,10 @@ MonoBehaviour:
   trophyBronze: {fileID: 21300000, guid: 94a351abe31e7a947950e98f3e9ba195, type: 3}
   trophySilver: {fileID: 21300000, guid: a0f374ca5635f8e4baba443d89adf5da, type: 3}
   trophyGold: {fileID: 21300000, guid: 09e0d1690fce3834cac9538ff35cf712, type: 3}
+  tutorialLevelSO: {fileID: 11400000, guid: 79d5385a842955049a285f41539dbe56, type: 2}
+  level2SO: {fileID: 11400000, guid: 5330fa3f98de89540a8bb13727980578, type: 2}
+  level3SO: {fileID: 11400000, guid: be8c648e086c709419e044954f08953b, type: 2}
+  level4SO: {fileID: 11400000, guid: a5f0c53488433aa41af633aaa3805e2c, type: 2}
 --- !u!1 &1402913156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,6 +1730,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1631465256}
+        m_TargetAssemblyTypeName: Dev_SceneSession, Assembly-CSharp
+        m_MethodName: ClearLevelName
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2095822420}
         m_TargetAssemblyTypeName: Dev_LevelManager, Assembly-CSharp
         m_MethodName: LoadMainMenu
@@ -1806,11 +1822,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 0
-  completedTime: 0
-  ShoppingList: []
-  StolenItems: []
   isSuccess: 0
   m_SceneName: 
+  level1Complete: 0
+  level2Complete: 0
+  level3Complete: 0
+  level4Complete: 0
 --- !u!4 &1631465257
 Transform:
   m_ObjectHideFlags: 0

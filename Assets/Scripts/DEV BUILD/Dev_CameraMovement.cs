@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Dev_CameraMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float camPause = 3f;
     [SerializeField] private Vector3 aimDirection;
     [SerializeField] Transform player;
     Dev_UITimer Timer;
@@ -25,6 +27,9 @@ public class Dev_CameraMovement : MonoBehaviour
     private bool inLight;
     public float coolDownTime = 1.5f;
     float lastSeen;
+
+    private bool rotateA;
+    private bool rotateB;
 
     private enum State {
         Waiting,
@@ -47,6 +52,7 @@ public class Dev_CameraMovement : MonoBehaviour
     private void Awake()
     {
         audioPlayer = FindObjectOfType<Dev_AudioPlayer>();
+        rotateA = true;
     }
 
     private void Update()
@@ -73,7 +79,6 @@ public class Dev_CameraMovement : MonoBehaviour
             fieldOfView.SetOrigin(FOVOrigin.position);
             fieldOfView.SetAimDirection(lastMoveDir);
         }
-
     }
 
     private void HandleMovement() {
@@ -87,9 +92,29 @@ public class Dev_CameraMovement : MonoBehaviour
         case State.Moving:
             if (camRotation != 0)
             {
-                transform.localEulerAngles = new Vector3(0, 0, Mathf.PingPong(Time.time * moveSpeed, camRotation));
+                //transform.localEulerAngles = new Vector3(0, 0, Mathf.PingPong(Time.time * moveSpeed, camRotation));
                 Vector3 waypointDir = (FOVAngle.position - transform.position).normalized;
                 lastMoveDir = waypointDir;
+
+                if (rotateA) {
+                    Quaternion targetRotationA = Quaternion.Euler(new Vector3(0, 0, camRotation));
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotationA, moveSpeed * Time.deltaTime);
+
+                    if (transform.rotation == targetRotationA) {
+                        rotateA = false;
+                        rotateB = true;
+                        StartCoroutine(PauseNow());
+                    }
+                } else if (rotateB) {
+                    Quaternion targetRotationB = Quaternion.Euler(new Vector3(0, 0, 0));
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotationB, moveSpeed * Time.deltaTime);
+
+                    if (transform.rotation == targetRotationB) {
+                        rotateB = false;
+                        rotateA = true;
+                        StartCoroutine(PauseNow());
+                    }
+                }
             }
             break;
         }
@@ -125,9 +150,9 @@ public class Dev_CameraMovement : MonoBehaviour
     IEnumerator PauseNow()
     {
         state = State.Busy;
-        Debug.Log($"Pausing between moves");
+        //Debug.Log($"Pausing between moves");
         yield return new WaitForSeconds(2f);
-        state = State.Waiting;
+        state = State.Moving;
     }
 
     IEnumerator CoolDown()
@@ -137,7 +162,7 @@ public class Dev_CameraMovement : MonoBehaviour
         audioPlayer.SpottedClip();
         hamBroEvents.StartSpotSpeech();
         Timer.InViewOfLight();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(camPause);
 
         inLight = false;
         state = State.Moving;

@@ -379,7 +379,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -1109,8 +1109,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 60
     m_Right: 60
-    m_Top: 30
-    m_Bottom: 25
+    m_Top: 10
+    m_Bottom: 35
   m_ChildAlignment: 1
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
@@ -16565,7 +16565,17 @@ MonoBehaviour:
   uiFillImage: {fileID: 2065463746}
   timerText: {fileID: 1158539230}
   failText: {fileID: 333091687}
-  completedTimeSO: {fileID: 11400000, guid: 79d5385a842955049a285f41539dbe56, type: 2}
+  completedTime1SO: {fileID: 11400000, guid: 79d5385a842955049a285f41539dbe56, type: 2}
+  completedTime2SO: {fileID: 11400000, guid: 5330fa3f98de89540a8bb13727980578, type: 2}
+  completedTime3SO: {fileID: 11400000, guid: be8c648e086c709419e044954f08953b, type: 2}
+  completedTime4SO: {fileID: 11400000, guid: a5f0c53488433aa41af633aaa3805e2c, type: 2}
+  completedTimeBest1SO: {fileID: 11400000, guid: d1af276fca5330c4385e5c36b9058398, type: 2}
+  completedTimeBest2SO: {fileID: 11400000, guid: 29cbe5bce15e0d3408e47bb5d8b61661, type: 2}
+  completedTimeBest3SO: {fileID: 11400000, guid: 8388edc3904d5cd42b733b2fbc3f06a4, type: 2}
+  completedTimeBest4SO: {fileID: 11400000, guid: 8388edc3904d5cd42b733b2fbc3f06a4, type: 2}
+  trophyBronze: {fileID: 21300000, guid: 94a351abe31e7a947950e98f3e9ba195, type: 3}
+  trophySilver: {fileID: 21300000, guid: a0f374ca5635f8e4baba443d89adf5da, type: 3}
+  trophyGold: {fileID: 21300000, guid: 09e0d1690fce3834cac9538ff35cf712, type: 3}
   isFirst: 0
   startingTime: 120
 --- !u!1 &402953186
@@ -17504,7 +17514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 2.275719, z: -10}
+  m_LocalPosition: {x: -6, y: 2.291719, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28774,7 +28784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f964467ed622d4ba7658647dc4776e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
+  moveSpeed: 80
+  camPause: 3
   aimDirection: {x: -1.5, y: -0.6, z: 0}
   player: {fileID: 1172101754}
   FOVOrigin: {fileID: 1102345036}
@@ -29030,7 +29041,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -30143,13 +30154,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 0
-  completedTime: 0
   isSuccess: 0
   m_SceneName: 
-  tutorialLevelSO: {fileID: 11400000, guid: 79d5385a842955049a285f41539dbe56, type: 2}
-  level2SO: {fileID: 11400000, guid: 5330fa3f98de89540a8bb13727980578, type: 2}
   level1Complete: 0
   level2Complete: 0
+  level3Complete: 0
+  level4Complete: 0
 --- !u!1 &1102345035
 GameObject:
   m_ObjectHideFlags: 0
@@ -31447,7 +31457,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -38847,7 +38857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f964467ed622d4ba7658647dc4776e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 25
+  moveSpeed: 80
+  camPause: 3
   aimDirection: {x: -1.5, y: -0.6, z: 0}
   player: {fileID: 1172101754}
   FOVOrigin: {fileID: 1602815637}

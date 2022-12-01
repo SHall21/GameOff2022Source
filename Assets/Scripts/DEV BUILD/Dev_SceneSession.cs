@@ -7,38 +7,20 @@ using UnityEngine.Events;
 public class Dev_SceneSession : MonoBehaviour
 {
     public int startTime;
-    public int completedTime;
     static Dev_SceneSession instance;
     public bool isSuccess;
     Scene m_Scene;
     public string m_SceneName;
-    [SerializeField] public Dev_TimeData tutorialLevelSO;
-    [SerializeField] public Dev_TimeData level2SO;
     public bool level1Complete;
     public bool level2Complete;
+    public bool level3Complete;
+    public bool level4Complete;
 
     void Awake()
     {
         ManageSingleton();
 
         m_Scene = SceneManager.GetActiveScene();
-    }
-
-    void Start()
-    {
-        if (m_Scene.name.Contains("Level")) {
-            m_SceneName = m_Scene.name;
-        }
-
-        if (tutorialLevelSO.name.Contains(m_SceneName))
-        {
-            Debug.Log("SO matching level");
-            completedTime = tutorialLevelSO.Value;
-        } else if (level2SO.name.Contains(m_SceneName))
-        {
-            Debug.Log("SO matching level");
-            completedTime = level2SO.Value;
-        }
     }
 
     void ManageSingleton()
@@ -55,6 +37,21 @@ public class Dev_SceneSession : MonoBehaviour
         }
     }
 
+    public void SetLevelName()
+    {
+        m_Scene = SceneManager.GetActiveScene();
+        
+        if (m_Scene.name.Contains("Level")) {
+            m_SceneName = m_Scene.name;
+            Debug.Log($"setting scene name {m_SceneName}");
+        }
+    }
+
+    public void ClearLevelName()
+    {
+        m_SceneName = string.Empty;
+    }
+
     public void SetLevel1Complete()
     {
         level1Complete = true;
@@ -63,5 +60,15 @@ public class Dev_SceneSession : MonoBehaviour
     public void SetLevel2Complete()
     {
         level2Complete = true;
+    }
+
+    public void SetLevel3Complete()
+    {
+        level3Complete = true;
+    }
+
+    public void SetLevel4Complete()
+    {
+        level4Complete = true;
     }
 }

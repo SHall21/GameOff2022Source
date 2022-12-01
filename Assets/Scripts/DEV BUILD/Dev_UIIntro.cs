@@ -32,6 +32,7 @@ public class Dev_UIIntro : MonoBehaviour
     {
         if (context.performed)
         {
+            FadeOut();
             StartCoroutine(NextLevel());
         }
     }
@@ -92,7 +93,7 @@ public class Dev_UIIntro : MonoBehaviour
             nextSceneIndex = 0;
         }
 
-        FadeOut();
+        fadingCanvasGroup.DOKill();
         SceneManager.LoadScene(nextSceneIndex);
     }
 
