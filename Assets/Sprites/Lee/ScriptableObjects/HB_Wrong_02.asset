@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb1a855d3bff92449c6ad4b1f04f141, type: 3}
+  m_Name: HB_Wrong_02
+  m_EditorClassIdentifier: 
+  id: HB_Wrong_02
+  emotion: disappointed
+  message: You picked up the wrong item..
+  bubble: {fileID: 21300000, guid: d75473c6d85bcc24cb996d67bf0abf8e, type: 3}
+  image: {fileID: 21300000, guid: 4e159126df51d2844b63ffe9d19e591b, type: 3}

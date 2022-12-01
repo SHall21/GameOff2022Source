@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Tube
+  - Alarms
+  - Enemies
+  - Ground
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Background
+  - Water
+  - UI
+  - Foreground
+  - Confiner
+  - Hazards
+  - EndFLag
+  - Tube
+  - Decor
+  - Chute
+  - Enemies
+  - Player
+  - Objects
+  - Mask
+  - BehindMask
+  - Black
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1660105757
+    locked: 0
+  - name: Foreground
+    uniqueID: 3047584237
+    locked: 0
+  - name: Interactables
+    uniqueID: 2223509167
+    locked: 0
+  - name: Enemies
+    uniqueID: 2719489515
+    locked: 0
+  - name: Characters
+    uniqueID: 1658898931
+    locked: 0
+  - name: Tube
+    uniqueID: 4235023507
+    locked: 0
+  - name: Darkness
+    uniqueID: 857724825
+    locked: 0

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb1a855d3bff92449c6ad4b1f04f141, type: 3}
+  m_Name: HB_Start_01
+  m_EditorClassIdentifier: 
+  id: ham_start_01
+  emotion: neutral
+  message: You have 2 minutes on the clock, and then we have gotta cheese it
+  bubble: {fileID: 21300000, guid: d75473c6d85bcc24cb996d67bf0abf8e, type: 3}
+  image: {fileID: 21300000, guid: cc134908631314646b0d36328f9d54fd, type: 3}

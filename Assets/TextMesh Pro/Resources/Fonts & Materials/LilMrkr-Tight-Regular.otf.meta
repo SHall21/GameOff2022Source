@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 84648ec610cf0324fb78c34384ae4346
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - LilMrkr
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9124e389d0b72534e94746530b06b4f8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
